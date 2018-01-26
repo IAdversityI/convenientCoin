@@ -1,0 +1,345 @@
+/* indent.wxss */
+.first_block{
+  width:100%;
+  height:85rpx;
+  background-color: #FFFFFF;
+}
+.indent_name{
+  width:70%;
+  height:100%;
+  line-height:85rpx;
+  text-indent:21rpx;
+  float: left;
+}
+.indent_declare{
+  width:28%;
+  height:100%;
+  float: left;
+  line-height:85rpx;
+  text-align: right;
+  color: #da4030;
+}
+.sec_block{
+  width:100%;
+  height:115rpx;
+  border-bottom:1rpx solid #d8d8d8;
+  border-top:1rpx solid #d8d8d8;
+  background-color: #FFFFFF;
+  float: left;
+}
+.timeTitle{
+  width:30%;
+  height:100%;
+  font-size:10pt;
+  line-height:115rpx;
+  text-indent:21rpx;
+  float: left;
+}
+.time_box{
+  width: 67%;
+  height:100%;
+  float: left;
+}
+.time_block{
+  width: 111rpx;
+  height:75rpx;
+  margin-top:20rpx;
+  border:solid 1rpx #d8d8d8;
+  background-color: #FFFFFF;
+  border-radius: 5rpx 5rpx 5rpx 5rpx;
+  margin-left:10rpx;
+  float:left;
+} 
+.indent_date{
+  width:100%;
+  height: 37rpx;
+  line-height:37rpx;
+  color:#333333;
+  font-size:20rpx;
+  text-align:center;
+}
+.indent_price{
+  width:100%;
+  height: 37rpx;
+  line-height:37rpx;
+  color:#da4030;
+  font-size:20rpx;
+  text-align:center;
+}
+.moreTime{
+  width:20rpx;
+  color:#d4d4d4;
+  line-height:75rpx;
+  margin-left:-1rpx;
+  border-left:0rpx;
+  border-radius:0rpx 5rpx 5rpx 0rpx;
+  text-align:center;
+}
+.num_block{
+  width:220rpx;
+  height: 54rpx;
+  background-color: #FFFFFF;
+  margin-right:26rpx;
+  margin-top: 30rpx;
+  float: right; 
+}
+.control_num{
+  width:54rpx;
+  height:54rpx;
+  border: 1rpx solid #d4d4d4;
+  float:left;
+  line-height:54rpx;
+  text-align:center;
+  font-size:24rpx;
+  color:#d4d4d4;
+}
+.num{
+  width:105rpx;
+  height:54rpx;
+  text-align:center;
+  font-size:24rpx;
+
+  color:#333333;
+  line-height:54rpx;
+  float:left;
+  border-top:1rpx solid #d4d4d4;
+  border-bottom:1rpx solid #d4d4d4;
+}
+.date_range{
+  background-color: #FFFFFF;
+  width:500rpx;
+  height:100%;
+  line-height:115rpx;
+  float:right;
+  margin-right:20rpx;
+  text-align:center;
+  font-size:25rpx;
+} 
+
+.detail_view{
+  width:95%;
+  margin-left:2.5%;
+  height:165rpx;
+  margin-top:20rpx;
+  background-color: burlywood;
+}
+.detail_view_img{
+  width:95%;
+  height:167rpx;
+  position: absolute;
+  margin-top:-165rpx;
+}
+.detail_view_img2{
+  width:100%;
+  height:165rpx;
+}
+.detail_view_title{
+  width:37%;
+  height:40rpx;
+  font-size:smaller;
+  color: #FFFFFF;
+  margin-top:-155rpx;
+  text-align: right;
+  margin-left:57%;
+  position: absolute;
+}
+
+.detail_price{
+  width:37%;
+  height:40rpx;
+  font-size:smaller;
+  color: #ffea00 ;
+  margin-top:-89rpx;
+  text-align: right;
+  margin-left:57%;
+  position: absolute;
+}
+
+.detail_time{
+  width:67%;
+  height:40rpx;
+  font-size:15rpx;
+  color: #FFFFFF ;
+  margin-top:-29rpx;
+  text-align: right;
+  margin-left:27%;
+  position: absolute;
+}
+.detail_time1{
+  width:67%;
+  height:40rpx;
+  font-size:15rpx;
+  color: #333333;
+  margin-top:50rpx;
+  margin-right:20rpx;
+  text-align: right;
+  position: absolute;
+}
+.detail_item{
+  float:left;
+  width:100%;
+  margin-top:10rpx;
+}
+
+.detail_price2{
+  width:37%;
+  height:40rpx;
+  font-size:30rpx;
+  color: #FFFFFF ;
+  margin-top:-119rpx;
+  margin-left:57%;
+  position: absolute;
+}
+.detail_price_1{
+  height:100%;
+  float: right;
+  font-size:smaller;
+  line-height: 40rpx;
+}
+.detail_price_2{
+  height:100%;
+  float: right;
+  color: #ffea00 ;
+  font-size: medium;
+  line-height: 40rpx;
+}
+.detail_No{
+  width:37%;
+  height:40rpx;
+  font-size:25rpx;
+  color: #FFFFFF ;
+  margin-top:-79rpx;
+  text-align: left;
+  margin-left:55%;
+  position: absolute;
+}
+.context_declare{
+  width:100%;
+  float: left;
+  margin-top:20rpx;
+  border-top: 1rpx solid #d4d4d4;
+}
+.context_title{
+  width:100%;
+  height:70rpx;
+  text-align:left;
+  line-height:70rpx;
+  font-size:24rpx;
+  color: #333333;
+  float:left ;
+
+}
+.context_txt{
+  width:90%;
+  margin-left:5%;
+  font-size:18rpx;
+  line-height:30rpx;
+  color:#666666;
+}
+.indent_bottom{
+  margin-top: 20rpx;
+  float: left;
+  width:100%;
+  height: 77rpx;
+  background-color: #ffea00;
+}
+.indent_price{
+  width:50%;
+  height:100%;
+  line-height:77rpx;
+  color: #333333;
+  background-color: #ffffff;
+  float: left;
+  font-size:24rpx;
+  text-align: center;
+}
+
+.detail_quan{
+  width:95%;
+  margin-left:2.5%;
+  height:169rpx;
+  margin-top:20rpx;
+}
+.quan_left{
+  width:70%;
+  float: left;
+  height:100%;
+  background-color: #FFFFFF;
+}
+.quan_right{
+  width:30%;
+  float: left;
+  height:100%;
+}
+.quan_left_img{
+  width: 176rpx;
+  height:140rpx;
+  margin-top:14.5rpx;
+  margin-left:11rpx;
+  float: left;
+}
+.quan_left_top{
+  width: 60%;
+  height: 50rpx;
+  margin-left: 199rpx;
+  border-bottom: 3rpx solid #cc3333 ;
+}
+.quan_type{
+  width:60%;
+  height:100%;
+  color:#cc3333 ;
+  float: left;
+  font-size:10pt;
+  line-height: 50rpx;
+}
+.quan_price{
+  width:36%;
+  font-size:10pt;
+  height:100%;
+  color:#cc3333 ;
+  float: left;
+  text-align: right;
+  line-height: 50rpx;
+}
+.quan_name{
+  width: 60%;
+  height: 50rpx;
+  float:left;
+  line-height:50rpx;
+  color: #333333; 
+  text-indent:10rpx;
+}
+.quan_tip{
+  width:140rpx;
+  height:30rpx;
+  font-size:6pt;
+  float: left;
+  text-indent:10rpx;
+  color: #7a7a7a;
+  margin-top: 20rpx;
+}
+.quan_right_top{
+  position: absolute;
+  width:180rpx;
+  height:55rpx;
+  margin-left:20rpx;
+  color: #FFFFFF;
+  font:24rpx;
+  text-align: center;
+  line-height:50rpx;
+  margin-top:-139rpx;
+}
+.quan_right_buy{
+  position: absolute;
+  width:93rpx;
+  height:31rpx;
+  margin-left:69rpx;
+  color: #FFFFFF;
+  text-align: center;
+  line-height:31rpx;
+  margin-top:-77rpx;
+  font-size:16rpx;
+  background-color:#ef7a6d;
+  border:4rpx #FFFFFF solid;
+  border-radius:2pt 2pt 2pt 2pt;
+}

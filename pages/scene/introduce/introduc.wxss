@@ -1,0 +1,59 @@
+/* introduc.wxss */
+@import '../../../utils/font/iconfont.wxss';
+page{
+  background-color:#ffffff;
+}
+.title{
+  width: 100%;
+  height:70rpx;
+  line-height:70rpx;
+  font-weight: bold;
+  margin-top: 27rpx;
+  text-indent: 29rpx;
+}
+.title2{
+  width:100%;
+  height:50rpx;
+  line-height:50rpx;
+  font-size: 8pt;
+  color:#888888;
+  text-indent:29rpx;
+  margin-top:33rpx;
+}
+image{
+  width:90%;
+  height:400rpx;
+  margin-left:5%;
+}
+.context{
+  width: 89%;
+  border:1rpx #E8E8E8 solid;
+  color:#737687;
+  padding-left:21rpx;
+  padding-right:21rpx;
+  padding-top:21rpx;
+  padding-bottom:21rpx;
+  font-size:22rpx; 
+  line-height:57rpx;
+  border-top:0rpx;
+  margin-left: 2.5%;
+}
+.head{
+  width: 95%;
+  height:60rpx;
+  border-radius:15rpx 15rpx 0rpx 0rpx;
+  margin-left:2.5%;
+  background-color:#efeff4;
+  color:#17b990;
+  font-size:24rpx;
+  line-height:60rpx;
+  margin-top: 27rpx;
+  text-indent: 24rpx;
+}
+.head text{
+  font-size:34rpx;
+}
+.blank{
+  display: inline;
+  padding-left:25rpx;
+}

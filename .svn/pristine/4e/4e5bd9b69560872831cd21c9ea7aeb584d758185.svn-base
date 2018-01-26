@@ -1,0 +1,153 @@
+<!--detail.wxml-->
+<view class="mask" style="height:{{winHeight}}px;display:{{mask}}">
+
+</view>
+<view class="tips " style="display:{{mask}}">
+    <view class="tips_title">预定成功</view>
+    <view class="tips_title2">恭喜您，成功抢到某某票/券，请务
+必及时查阅使用方法。</view>
+    <view class="tips_btn" style=" border-right:1px  #d2d3d5 solid;" bindtap="continueView">继续浏览</view>
+    <view class="tips_btn" bindtap="gotoMy">查看我的票/券</view>
+</view>
+<view class="detail_head">
+    <image src="{{detail_view}}" class="scene_view" mode="aspectFill" bindtap="gotopicture"></image>
+    <view class="sence_tip">
+      <view class="sence_tip1">
+        {{tip1}}
+      </view>
+      <view class="sence_tip2">
+        共{{tip2}}张照片
+      </view>
+    </view>
+</view>
+<view class="view_intr" style="border-bottom:1rpx solid #d8d8d8;">
+  <image src="/img/jdjs.png" class="view_icon"></image>
+  <view class="view_intr_text" bindtap="intoIntroduce">详细介绍</view>
+</view>
+<view class="view_intr" style="margin-top:0px">
+  <image src="/img/dz.png" class="view_icon"></image>
+  <view class="view_intr_text" bindtap="gotomap">{{location}}</view>
+</view >
+
+<!--
+<view class="nav">
+  <view class="{{nav_class[0]}}" data-navnum='0' bindtap="changNav">景点</view>
+  <view class="{{nav_class[1]}}" data-navnum='1' bindtap="changNav">住宿</view>
+  <view class="{{nav_class[2]}}" data-navnum='2' bindtap="changNav">餐饮</view>
+  <view class="{{nav_class[3]}}" data-navnum='3' bindtap="changNav">商店</view>
+</view>
+-->
+<view class="nav">
+  <view class="{{nav_class[0]}}" data-navnum='0' bindtap="changNav">票</view>
+  <view class="{{nav_class[1]}}" data-navnum='1' bindtap="changNav">券</view>
+</view>
+  <view class="blank"></view>
+
+ <view class="detail_item" style="display:{{item_isShow[0]}}">
+  <view wx:if="{{ticks.length<=0}}">
+    <image src="/img/nodata1.png" class="nodata" mode="aspectFit"></image>
+  </view>
+    <view class="detail_view" wx:for="{{ticks}}"  >
+     <image src="{{ticks[index].src}}"class="detail_view_img2"mode="aspectFill"  data-viewindex="{{index}}" data-type="0" bindtap="tapTick">
+        <image src="/img/scene/03_03.png"  class="detail_view_img"></image>
+      <view class="detail_view_title">
+      {{ticks[index].name}}
+      </view>
+
+      <view class="detail_price" wx:if="{{ticks[index].price==''}}" data-viewindex="{{index}}" data-type="0">
+      免费领取
+      </view>
+
+      <view class="detail_price2" wx:if="{{ticks[index].price!=''}}"  data-viewindex="{{index}}" data-type="0" >
+        <view class="detail_price_1">元</view>
+        <view class="detail_price_2">{{ticks[index].price}}</view>
+        <view class="detail_price_1">票价</view>
+      </view>
+
+      <view class="detail_time" wx:if="{{ticks[index].price==''}}">
+     有效期： {{ticks[index].activestime}}~{{ticks[index].activeetime}}
+      </view>
+
+     
+      </image>
+        <view class="detail_time" wx:if="{{ticks[index].price!=''}}" bindtap="gotobuydetial"> 
+          使用须知►
+        </view>
+    </view>
+  
+  </view>
+
+
+  <view class="detail_item1" style="display:{{item_isShow[1]}}">
+    <view wx:if="{{quans.length<=0}}">
+        <image src="/img/nodata1.png" class="nodata" mode="aspectFit"></image>
+    </view>
+      <view class="detail_quan" wx:for="{{quans}}">
+        <view class="quan_left">
+          <image  class="quan_left_img" src="{{quans[index].src}}" mode="aspectFill"></image>
+          <view class="quan_left_top">
+            <view class="quan_type">{{quans[index].type}}</view>
+            <view class="quan_price">{{quans[index].price}}</view>
+          </view>
+          <view class="quan_name">{{quans[index].name}}</view>
+          <view class="quan_tip" bindtap="gotobuydetial">使用须知►</view>
+        </view>
+        <image class="quan_right" src="/img/scene/quan.png"   data-type="1"  bindtap="tapTick" data-viewindex="{{index}}">
+          <view class="quan_right_top">
+          {{quans[index].status}}
+          </view>
+          <view class="quan_right_buy">
+          {{quans[index].buy_type}}
+          </view>
+        </image>
+      </view>
+    
+  </view>
+  <!--
+  <view class="detail_item2" style="display:{{item_isShow[2]}}">
+  
+  <view class="detail_quan" wx:for="{{hotel_view}}">
+        <view class="quan_left">
+          <image  class="quan_left_img" src="{{hotel_view[index].src}}" mode="aspectFill"></image>
+          <view class="quan_left_top">
+            <view class="quan_type">{{hotel_view[index].tick_type}}</view>
+            <view class="quan_price">{{hotel_view[index].price}}</view>
+          </view>
+          <view class="quan_name">{{hotel_view[index].name}}</view>
+          <view class="quan_tip">使用须知►</view>
+        </view>
+        <image class="quan_right" src="/img/scene/quan.png"  data-type="2"  data-viewindex="{{index}}" bindtap="tapTick" >
+          <view class="quan_right_top">
+          {{hotel_view[index].status}}
+          </view>
+          <view class="quan_right_buy">
+          {{hotel_view[index].buy_type}}
+          </view>
+        </image>
+      </view>
+
+  </view>
+  <view class="detail_item3" style="display:{{item_isShow[3]}}">
+  
+  <view class="detail_quan" wx:for="{{shop_view}}">
+        <view class="quan_left">
+          <image  class="quan_left_img" src="{{shop_view[index].src}}" mode="aspectFill"></image>
+          <view class="quan_left_top">
+            <view class="quan_type">{{shop_view[index].tick_type}}</view>
+            <view class="quan_price">{{shop_view[index].price}}</view>
+          </view>
+          <view class="quan_name">{{shop_view[index].name}}</view>
+          <view class="quan_tip">使用须知►</view>
+        </view>
+        <image class="quan_right" src="/img/scene/quan.png"  data-type="3"  data-viewindex="{{index}}" bindtap="tapTick">
+          <view class="quan_right_top">
+          {{shop_view[index].status}}
+          </view>
+          <view class="quan_right_buy">
+          {{shop_view[index].buy_type}}
+          </view>
+        </image>
+      </view>
+
+  </view>
+-->

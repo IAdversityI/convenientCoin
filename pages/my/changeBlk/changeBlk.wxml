@@ -1,0 +1,45 @@
+<!--member.wxml-->
+<!--会员实名制-->
+<form bindsubmit="activate">
+<view class="block" style="height:100 width:100%"></view>
+<!--绑定手机号-->
+<view class="bangding">
+  <text class="header">绑定便利扣</text>
+  <view class="content">
+    <view class="name1" style="width:100px">扫一扫</view>
+    <view class="inputName1">
+      <input name="blkid" placeholder="请输入便利扣ID" />
+    </view>
+    <view class="code" bindtap="scan">
+      <image class="code01" src="../../../img/my/code.png"></image>
+    </view>
+  </view>
+  <view class="content">
+    <view class="name" style="width:100px">手机号</view>
+    <view class="inputName">
+      <input name="mobile" placeholder="请输入本人手机号" bindinput="getMobile"/>
+    </view>
+  </view>
+  <view class="content">
+    <view class="name1" style="width:100px">动态码</view>
+    <view class="inputName2">
+      <input name="verifycode" placeholder="短信动态码" />
+    </view>
+    <view>
+      <button class="btn" bindtap="getVerifycode"> {{verify}} </button>
+    </view>
+  </view>
+  <view class="content">
+    <view class="name" style="width:100px">密码</view>
+    <view class="inputName">
+      <input type="password" name="password" placeholder="密码（不少于6位）" />
+    </view>
+  </view>
+</view>
+<!--登录按钮-->
+<view class="content1">
+  <view class="login_btn"  id="1">
+    <button type="primary"  formType="submit" style="background-color:#17b990;margin-top:-10rpx;">绑定</button>
+  </view>
+</view>
+</form>

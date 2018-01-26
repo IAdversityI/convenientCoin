@@ -1,0 +1,74 @@
+/* memberDetail.wxss */
+/* changPassword.wxss */
+
+.memberDetail {
+  position: relative;
+  top: 20px;
+  /*margin: 0 20rpx*/
+}
+
+.name {
+  text-indent:15rpx;
+  float: left;
+  height: 40px;
+  width: 100%;
+  font-weight: bold;
+}
+
+.inputName {
+  float: left;
+  height: 40px;
+  width: 72%;
+}
+
+.name1 {
+  float: left;
+  margin: 0 auto;
+  height: 40px;
+  width: 28%;
+  font-weight: bold;
+}
+
+.inputName1 {
+  float: left;
+  height: 40px;
+  width: 36%;
+}
+
+.content .btn {
+  width: 36%;
+  float: left;
+  height: 36px;
+   margin: 0 auto;
+  padding-bottom: 45px;
+  margin-top: -8px;
+}
+
+.content {
+  height: 40px;
+  width: 100%;
+  margin: 0 auto;
+  border-bottom: 1px solid #eee;
+  /*text-align: center;*/
+  padding-top: 14px;
+  background-color: white;
+  flex-direction: row;
+}
+
+.block {
+  height: 10px;
+}
+
+.header {
+  display: inline-block;
+  height: 36px;
+  padding-top: 2px;
+  padding-left: 18px;
+  margin-top: 4px;
+  color: gray;
+}
+
+.login_btn {
+  position: relative;
+  top: 10px;
+}

@@ -1,0 +1,34 @@
+<!--login.wxml-->
+<view class="board">
+  <view class="board-item bgw">
+   <view class="left03"> 手机号</view>
+   <input bindinput="userNameInput" placeholder="请输入已绑定手机号"  />
+    
+  </view>
+  
+  <view class="board-item bgw">
+    <view class="left03">密码</view>
+    <input  bindinput="userPasswordInput" password="true" placeholder="请输入密码"  />
+  </view>
+
+  <view class="board-item board-item1">
+  <view class="forgetPas">
+  <view class="item left1" >
+  <navigator class="nav1"  url="../member/member"><text class="txt1">新用户注册</text></navigator>
+  </view>
+ 
+  <view class="item left2">
+  <image class="suo" src="../../../img/my/suo.png"></image>
+   <navigator class="nav2" url="../changePassword/changePassword"><text class="txt2">忘记密码</text></navigator></view>
+  
+  </view>
+  </view>
+  <view class="board-item">
+   <view class="login_btn" catchtap="onTouch" id="22">
+    <button type="primary" bindtap="logIn" style="background-color:red">登录</button>
+  </view>
+  </view>
+ 
+</view>
+
+

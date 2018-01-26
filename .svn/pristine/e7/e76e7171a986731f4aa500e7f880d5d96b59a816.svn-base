@@ -1,0 +1,81 @@
+/* address.wxss */
+.head{
+  width:100%;
+  height:40px;
+  background-color: #f0eff5;
+  z-index:999;
+}
+input{
+  width:80%;
+  height:70%;
+  top:15%;
+  left:15px;
+  position: relative;
+  background-color: #FFFFFF;
+  float:  left;
+}
+.placeholder{
+  font-size: small;
+}
+.search-coin{
+  float: left;
+  position: relative;
+  top:15%;
+  height:70%;
+  background-color: #FFFFFF;
+  width:7%;
+  left:20px;
+}
+.title1{
+  height:30px;
+  width:100%;
+  line-height:30px;
+  text-indent:20px;
+  color: #17b990;
+  background-color: #f6f6f6;
+}
+.view1{
+  width:100%;
+  overflow: auto;
+ background-color: #ffffff;
+}
+.blank{
+  width:100%;
+  height:10px;
+  background-color: #ffffff;
+}
+.history{
+  color: #333333;
+  width:25%;
+  height:30px;
+  text-align: center;
+  line-height:30px;
+  float: left;
+  margin-left:10px;
+  margin-top:10px;
+  border: 1px #e5e5e5 solid;
+  overflow: hidden;
+}
+
+.index {  
+  float: right;  
+  position: fixed;  
+  right: 0;  
+  margin-top: 10%;  
+  margin-right: 10rpx;  
+  color: #17b990;  
+  font-size: 11px;  
+  z-index:999;
+}  
+  
+.index text {  
+  display: flex;  
+  line-height: 18rpx;  
+}
+.cityIndex{
+  width:100%;
+  height:30px;
+  line-height:30px;
+  border-bottom:1px solid #e8e8e8;
+  text-indent:20px;
+}

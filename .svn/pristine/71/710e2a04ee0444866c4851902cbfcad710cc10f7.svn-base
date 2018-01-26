@@ -1,0 +1,35 @@
+<!--changPassword.wxml-->
+<form bindsubmit="changPasswd">
+<view class="changePassword">
+  <view class="content">
+    <view class="name">手机号:</view>
+    <view class="inputName">
+      <input class="input" bindinput="getMobile" name="moblie" placeholder="请输入已绑定手机号" />
+    </view>
+  </view>
+  <view class="content">
+    <view class="name1">动态码:</view>
+    <view class="inputName1">
+      <input class="input" name="verifycode" placeholder="短信动态码" />
+    </view>
+    <view >
+      <button class="btn" type="default" bindtap="getVerifycode"> {{verify}}</button>
+    </view>
+  </view>
+  <view class="content">
+    <view class="name" >新密码:</view>
+    <view class="inputName">
+      <input class="input" name="password" password="true" placeholder="密码（不少于6位）" />
+    </view>
+  </view>
+   <view class="content">
+    <view class="name" >确认密码:</view>
+    <view class="inputName">
+      <input class="input" name="confirmPassword" password="true" placeholder="确认密码（不少于6位）" />
+    </view>
+  </view>
+    <view class="comit">
+     <button type="primary" formType="submit"  style="background-color:#17b990" class="sub">提交</button>
+    </view>
+</view>
+</form>

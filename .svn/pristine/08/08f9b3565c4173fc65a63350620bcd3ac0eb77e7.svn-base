@@ -1,0 +1,38 @@
+<!--my.wxml-->
+<!--会员实名制-->
+<view class="board">
+<!--<navigator url="../my/member/member">-->
+  <view class="board-item" bindtap="goTomember">
+    <text>会员信息</text>
+    <!--<image src="../../img/my/boult.jpg"></image>-->
+    <image src="{{imgurls}}"></image>
+  </view>
+   <view class="board-item"  bindtap="goblk">
+    <text>绑定便利扣</text>
+    <image src="{{imgurls}}"></image>
+  </view>
+  <view class="board-item"  bindtap="goChangPass">
+    <text>修改密码</text>
+    <image src="{{imgurls}}"></image>
+  </view>
+</view>
+
+<view class="board">
+  <view class="board-item"  bindtap="goMyTick">
+    <text>我的票</text>
+    <image src="{{imgurls}}" mode="aspectFill"></image>
+  </view>
+  <view class="board-item"  bindtap="goQuan">
+    <text>我的券</text>
+    <image src="{{imgurls}}"></image>
+  </view>
+  <view class="board-item"  bindtap="golq">
+    <text>临期提醒</text>
+    <image src="{{imgurls}}"></image>
+  </view>
+</view>
+
+<view class="number" style="text-align:center">
+  <text class="text1">客服电话：</text>
+  <text class="text2">400-8510115</text>
+</view>

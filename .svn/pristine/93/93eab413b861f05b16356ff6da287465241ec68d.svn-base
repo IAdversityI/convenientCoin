@@ -1,0 +1,46 @@
+<!--address.wxml-->
+<view class="mask">
+
+</view>
+<view class="head">
+  <view class="search-coin"  >
+    <icon type="search" size="15" style="position: relative;top:3px;left:3px"/>
+  </view>
+  <input type="text" placeholder="搜索目的地/关键字" placeholder-class="placeholder" bindinput="inputSearch"/>
+</view>
+
+<view class="index">  
+  <text wx:for="{{wordindex}}" bindtap="jumpIndex" data-wordindex="{{wordindex[index]}}">  
+    {{wordindex[index]}}  
+  </text>  
+</view>  
+
+<view class="view1" >
+  <view class="history" wx:for="{{searchRsult}}" bindtap="selectCity" data-city="{{searchRsult[index]}}">
+    {{searchRsult[index]}}
+  </view>
+</view>
+<view class="blank"></view>
+
+<scroll-view scroll-y="true" scroll-into-view="{{jumper}}"  style="height:{{winHeight}}px">
+<view class="title1" id="historys">选择历史</view>
+
+<view class="view1" >
+  <view class="history" wx:for="{{history}}" bindtap="selectCity"  data-city="{{history[index].name}}" data-code="{{history[index].code}}">
+    {{history[index].name}}
+  </view>
+</view>
+<view class="blank"></view>
+
+
+<view class="blank"></view>
+
+  <view wx:for="{{citys}}">
+    <view class="title1" id="{{citys[index].index}}">{{citys[index].index}}</view>
+    <view class="view1" >
+       <view class="cityIndex" wx:for="{{citys[index].items}}" wx:for-index="idx" bindtap="selectCity" data-city="{{citys[index].items[idx]}}" data-code="{{citys[index].code[idx]}}">
+         {{citys[index].items[idx]}}
+       </view>
+    </view>
+  </view>
+</scroll-view>

@@ -1,0 +1,103 @@
+<!--myArch.wxml-->
+<!--myTickets.wxml-->
+<view class="nav">
+  <view class="{{nav_class[0]}}" data-navnum='0' bindtap="changNav">未使用</view>
+  <view class="{{nav_class[1]}}" data-navnum='1' bindtap="changNav">已使用</view>
+  <view class="{{nav_class[2]}}" data-navnum='2' bindtap="changNav">已过期</view>
+</view>
+<view class="blank"></view>
+<view class="detail_item" style="display:{{item_isShow[0]}}">
+  <view class="test-list">
+    <view wx:if="{{data0.length<=0}}">
+      <image src="/img/nodata1.png" class="nodata" mode="aspectFit"></image>
+    </view>
+    <view class="test-item" wx:for="{{data0}}" wx:key="{{item.id}}">
+      <!--<view class="test-item-t">No：{{item.type}}</view>-->
+      <view class="test-item-b">
+        <!--<image class="blkimg1"   src="../../../img/my/my_blk.png"></image>-->
+        <view class="blk" style="position: relative; width:100%; height: 200rpx;">
+          <view class="detil">
+            <view class="detil_02">
+              <image class="blkimg1" src="../../../img/my/leftpic.png"></image>
+              <view class="detil_text">
+                <view class="wei1">{{data0[index].xytname}}</view>
+                <image class="line" src="../../../img/my/line.png"></image>
+                <view class="wei3 test-item-t">No:{{data0[index].number}}</view>
+                <view class="wei4">有效期:{{data0[index].xytqyxq}} </view>
+              </view>
+            </view>
+            <image class="blkimg3" src="../../../img/my/noUse_qbg.png">
+            </image>
+            <view class="wei2">礼物券</view>
+            <view class="wei5">进店兑换精美礼品</view>
+          </view>
+
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="detail_item" style="display:{{item_isShow[1]}}">
+  <view class="test-list">
+    <view wx:if="{{data1.length<=0}}">
+      <image src="/img/nodata1.png" class="nodata" mode="aspectFit"></image>
+    </view>
+    <view class="test-item" wx:for="{{data1}}" wx:key="{{item.id}}">
+      <!--<view class="test-item-t">No：{{item.type}}</view>-->
+      <view class="test-item-b">
+        <!--<image class="blkimg1"   src="../../../img/my/my_blk.png"></image>-->
+        <view class="blk" style="position: relative; width:100%; height: 200rpx;">
+          <view class="detil">
+            <view class="detil_02">
+              <image class="blkimg1" src="../../../img/my/leftpic.png"></image>
+              <view class="detil_text">
+                <view class="wei1">{{data1[index].xytname}}</view>
+                <image class="line" src="../../../img/my/line.png"></image>
+                <view class="wei3 test-item-t">No:{{data1[index].number}}</view>
+                <view class="wei4">有效期:{{data1[index].xytqyxq}} </view>
+              </view>
+            </view>
+            <image class="blkimg3" src="../../../img/my/used_qbg.png">
+            </image>
+            <view class="wei2">礼物券</view>
+            <view class="wei5">进店兑换精美礼品</view>
+          </view>
+
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="detail_item" style="display:{{item_isShow[2]}}">
+  <view class="test-list">
+    <view wx:if="{{data2.length<=0}}">
+      <image src="/img/nodata1.png" class="nodata" mode="aspectFit"></image>
+    </view>
+    <view class="test-item" wx:for="{{data2}}" wx:key="{{item.id}}">
+      <!--<view class="test-item-t">No：{{item.type}}</view>-->
+      <view class="test-item-b">
+        <!--<image class="blkimg1"   src="../../../img/my/my_blk.png"></image>-->
+        <view class="blk" style="position: relative; width:100%; height: 200rpx;">
+          <view class="detil">
+            <view class="detil_02">
+              <image class="blkimg1" src="../../../img/my/leftpic.png"></image>
+              <view class="detil_text">
+                <view class="wei1">{{data2[index].xytname}}</view>
+                <image class="line" src="../../../img/my/line.png"></image>
+                <view class="wei3 test-item-t">No:{{data2[index].number}} </view>
+                <view class="wei4">有效期:{{data2[index].xytqyxq}}</view>
+              </view>
+            </view>
+            <image class="blkimg3" src="../../../img/my/used_qbg.png">
+            </image>
+            <view class="wei2">礼物券</view>
+            <view class="wei5">进店兑换精美礼品</view>
+          </view>
+
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

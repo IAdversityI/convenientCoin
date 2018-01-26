@@ -1,0 +1,16 @@
+.page-body-info {
+  height: 550rpx;
+}
+.userinfo-avatar {
+  margin-top:200rpx;
+  margin-left:42%;
+  border-radius: 128rpx;
+  width: 128rpx;
+  height: 128rpx;
+}
+.userinfo-nickname {
+  width:100%;
+  text-align: center;
+  margin-top: 20rpx;
+  font-size: 38rpx;
+}

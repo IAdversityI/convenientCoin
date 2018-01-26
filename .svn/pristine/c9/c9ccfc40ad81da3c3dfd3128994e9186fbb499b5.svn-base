@@ -1,0 +1,225 @@
+var app = getApp();// address.js
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+      winHeight:"500",
+      history: [],
+//      hot: ["贵阳市", "观山湖区", "遵义市"],
+      wordindex: ["#","A", "B", "C", "D", "E", "F", "G", "H", "I","J", "K", "L", "M", "N", "O","P", "Q", "R", "S", "T","U","v", "W", "X", "Y", "Z"],
+      jumper:"historys",
+      citys:[],
+        cts: [],
+        ctspy: [],
+        searchRsult:[]
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    var citys = [
+     { "items":[],"code":[], "index":"A"},
+     { "items": [], "code": [], "index": "B" },
+     { "items": [], "code": [], "index": "C" },
+     { "items": [], "code": [], "index": "D" },
+     { "items": [], "code": [], "index": "E" },
+     { "items": [], "code": [], "index": "F" },
+     { "items": [], "code": [], "index": "G" },
+     { "items": [], "code": [], "index": "H" },
+     { "items": [], "code": [], "index": "I" },
+     { "items": [], "code": [], "index": "J" },
+     { "items": [], "code": [], "index": "K" },
+     { "items": [], "code": [], "index": "L" },
+     { "items": [], "code": [], "index": "M" },
+     { "items": [], "code": [], "index": "N" },
+     { "items": [], "code": [], "index": "O" },
+     { "items": [], "code": [], "index": "P" },
+     { "items": [], "code": [], "index": "Q" },
+     { "items": [], "code": [], "index": "R" },
+     { "items": [], "code": [], "index": "S" },
+     { "items": [], "code": [], "index": "T" },
+     { "items": [], "code": [], "index": "U" },
+     { "items": [], "code": [], "index": "V" },
+     { "items": [], "code": [], "index": "W" },
+     { "items": [], "code": [], "index": "X" },
+     { "items": [], "code": [], "index": "Y" },
+     { "items": [], "code": [], "index": "Z" },
+
+    ];
+    var test = ["贵阳市", "花溪区"];
+    var sysInfo = wx.getSystemInfoSync();
+    var winHeight = sysInfo.windowHeight;
+    //console.log(app.data.city)
+    var cityFirst;
+    var cts=[];
+    var ctspy=[];
+    for (var i = 0; i < app.data.city.length;i++){
+      cts[i] = app.data.city[i].name;
+      ctspy[i] = app.data.city[i].pinyin;
+     // console.log(app.data.city[i].pinyin[0].charCodeAt() - 97)
+     // console.log(app.data.city[i].name)
+      citys[app.data.city[i].pinyin[0].charCodeAt() - 97].items[citys[app.data.city[i].pinyin[0].charCodeAt() - 97].items.length] = app.data.city[i].name;
+      citys[app.data.city[i].pinyin[0].charCodeAt() - 97].code[citys[app.data.city[i].pinyin[0].charCodeAt() - 97].code.length] = app.data.city[i].id;     
+    }
+    for (var i = 0; i < citys.length;i++){
+      //console.log(citys[i].items.length);
+      if(!(citys[i].items.length>0)){
+        //console.log(citys[i].index);            
+        citys.splice(i, 1); 
+      }
+    }
+    /*
+    for (var i = 0; i < citys.length; i++) {
+      console.log(citys[i].items);
+    }*/
+   
+    this.setData({
+      winHeight: winHeight,
+      hot:test,
+      citys: citys,
+      cts: cts,
+      ctspy: ctspy
+    })
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+      
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+    var histroys=wx.getStorageSync('histroys');
+    if (!histroys){
+      histroys=[];
+    }
+    this.setData({
+      history: histroys
+    })
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
+  },
+  jumpIndex:function(e){
+    var index = e.currentTarget.dataset.wordindex;
+    if(index=='#'){
+      this.setData({
+        jumper: "historys"
+      })
+    }
+    this.setData({
+      jumper: index
+    })
+  },
+  inputSearch:function(e){
+     var str=e.detail.value
+     var search=[];
+     for(var i=0;i<this.data.cts.length;i++){
+       var pattem = false;
+       for(var j=0;j<str.length;j++){
+          if(str[j]==this.data.cts[i][j]){
+            pattem=true;
+          }
+          else{
+            console.log(str[j] + " " + this.data.cts[i][j]);
+            var pattem = false;
+            break;
+          }
+       }
+       if(pattem){
+         search.push(this.data.cts[i]);
+       }
+     }
+     
+    for (var i = 0; i < this.data.ctspy.length; i++) {
+      var pattem = false
+      for (var j = 0; j < str.length; j++) {
+        if (str[j] == this.data.ctspy[i][j] || (str[j].charCodeAt() - this.data.ctspy[i][j].charCodeAt()==32)) {
+          pattem = true;
+        }
+        else {
+         // console.log(str[j] + " " + this.data.ctspy[i][j]);
+          var pattem = false;
+          break;
+        }
+      }
+      if (pattem) {
+        search.push(this.data.cts[i]);
+      }
+    }
+    
+     this.setData({
+       searchRsult: search
+     })
+  
+  },
+  selectCity:function(e){
+    var city = e.currentTarget.dataset.city;
+    var code = e.currentTarget.dataset.code;
+    wx.setStorageSync('selectCity', city);
+    wx.setStorageSync('selectCode', code);
+    var histroys = [];  
+    histroys = this.data.history;
+    var cheak=true;
+    var t=[];
+    for (var i = 0; i<histroys.length;i++){
+      cheak=false;
+      if(city==histroys[i].name){
+        break;
+      }
+      cheak=true;
+    }
+    if(cheak){
+      var his={};
+      his.name=city;
+      his.code=code;
+      histroys.push(his);
+    }
+    wx.setStorageSync('histroys', histroys);
+    this.setData({
+      history: histroys
+    })
+    wx.navigateBack({
+      delta: 1
+    })
+  }
+})

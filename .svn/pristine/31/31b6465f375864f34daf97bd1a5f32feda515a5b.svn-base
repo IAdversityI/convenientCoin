@@ -1,0 +1,44 @@
+.board{
+   display: flex;
+   flex-direction: column;
+   padding: 30rpx;
+}
+.board-item{
+   display: flex;
+   flex:1;
+   border-bottom: 1rpx solid #eee;
+   padding: 20rpx;
+   background-color: white;
+   cursor: pointer;
+}
+.board-item image{
+   width: 80rpx;
+   height: 80rpx;
+}
+.board-item text{
+   flex:1;
+   padding-top: 22rpx;
+   font-weight: bold;
+}
+.number{
+  position: absolute;
+   height: 40rpx;
+   width:60%;
+   bottom: 20rpx;
+   left:180rpx;
+   
+}
+.number .text1{
+   display: block;
+   height:50rpx;
+   float:left;
+}
+.number .text2{
+   display: block;
+   float:left;
+   height:40rpx;
+   color:red;
+   text-decoration:underline;
+   /*margin-left: 2rpx;*/
+}
+  

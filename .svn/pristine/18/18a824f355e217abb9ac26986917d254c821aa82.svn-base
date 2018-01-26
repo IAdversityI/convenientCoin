@@ -1,0 +1,32 @@
+/* buydetail.wxss */
+page{
+  background-color:#efeff4;
+}
+.context_declare{
+  width:100%;
+  float: left;
+  margin-top:20rpx;
+}
+.context_title{
+  width:100%;
+  height:70rpx;
+  text-align:left;
+  line-height:70rpx;
+  font-size:24rpx;
+  color: #333333;
+  float:left ;
+
+}
+.context_txt{
+  width:90%;
+  margin-left:5%;
+  font-size:18rpx;
+  line-height:30rpx;
+  color:#666666;
+}
+.back{
+  width: 54rpx;
+  height:54rpx;
+  margin-top:101rpx;
+  margin-left:45%;
+}

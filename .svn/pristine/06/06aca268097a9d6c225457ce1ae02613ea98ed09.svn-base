@@ -1,0 +1,5 @@
+<!--introduc.wxml-->
+<view class="title">{{title}}</view>
+<view class="title2">{{title2}}</view>
+<image src="{{shopimg}}"></image>
+<view class="context">{{shopintroduction}}</view>

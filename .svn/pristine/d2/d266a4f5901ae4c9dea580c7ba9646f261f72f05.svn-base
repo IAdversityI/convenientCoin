@@ -1,0 +1,21 @@
+/* pictrue.wxss */
+.mask{
+  background-color: #333333;
+  width:100%;
+}
+.img_swiper{
+  position: absolute;
+  z-index:999;
+  width:100%;
+}
+image{
+  width:100%;
+  max-height:405rpx; 
+}
+.imgtip{
+  color: #FFFFFF;
+  margin-top:27rpx;
+  font-size:26rpx;
+  margin-left:28rpx;
+  position:fixed;
+}

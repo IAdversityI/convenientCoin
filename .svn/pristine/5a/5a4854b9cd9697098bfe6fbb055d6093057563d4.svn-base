@@ -1,0 +1,83 @@
+var app = getApp();
+Page({
+  data: {
+    hasUserInfo: false
+  },
+  onShow: function () {
+    wx.setStorageSync("jwttoken", null)
+    if (wx.getStorageSync("jwttoken")) {
+
+    } else {
+      this.getUserInfo();
+    }
+  },
+  getUserInfo: function () {
+    var that = this
+
+    if (app.globalData.hasLogin === false) {
+      wx.login({
+        success: _getUserInfo
+      })
+    } else {
+      _getUserInfo()
+    }
+
+    function _getUserInfo() {
+      wx.getUserInfo({
+        success: function (res) {
+          that.setData({
+            hasUserInfo: true,
+            userInfo: res.userInfo
+          })
+          that.update()
+        }
+      })
+    }
+  },
+  login: function () {
+    wx.login({
+      success: function (res) {
+        console.log("++++++++++++");
+        var code = res.code
+        if (code) {
+          //发起网络请求
+          wx.request({
+            url: 'http://114.115.149.80/sys/v1/login/wechatapp/' + code,
+            method: 'GET',
+            success: function (res) {
+             console.log(res);
+              wx.setStorageSync("jwttoken", res.data.data.jwttoken);
+              wx.setStorageSync("uId", res.data.data.user.uId);
+              wx.setStorageSync("expire", false);
+              if (res.data.data.user.isAct==1){
+                console.log("isLogin")
+                wx.setStorageSync("isrefresh", true);
+                wx.setStorageSync("expire", true);
+                wx.navigateBack({
+                })
+              }else{
+                wx.navigateTo({
+                  url: '/pages/my/member/member',
+                })
+              }
+             
+              
+            },
+            fail: function (res) {
+              console.log(res);
+            }
+          })
+        } else {
+          console.log('获取用户登录态失败！' + res.errMsg)
+        }
+      },
+      fail: function (res) {
+        console.log(res);
+        console.log("++++++++++++");
+      }
+    })
+  },
+  getxytUserInfo:function(){
+
+  }
+})

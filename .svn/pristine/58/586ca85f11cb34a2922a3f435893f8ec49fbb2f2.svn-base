@@ -1,0 +1,126 @@
+var jwttoken = "";
+var theWx = getApp();
+var myself = "";
+var uId = "";
+var getmytickets = "/wca/v1/getmytickets";   
+Page({
+  data: {
+    nav_class: ["nav_item2", "nav_item", "nav_item"],
+    item_isShow: ["show", "none", "none"],
+    showtab: 0,  //顶部选项卡索引
+    showtabtype: '', //选中类型
+    tabnav: {},  //顶部选项卡数据
+    testdataall: [],  //所有数据
+    data0: [], //数据列表
+    data1: [], //数据列表
+    data2: [], //数据列表
+    // testdata4: [], //数据列表
+    // testdata5: [], //数据列表
+    // startx: 0,  //开始的位置x
+    // endx: 0, //结束的位置x
+    // critical: 100, //触发切换标签的临界值
+    // marginleft: 0,  //滑动距离
+  },
+  onLoad: function () {
+    myself = this;
+    jwttoken = wx.getStorageSync("jwttoken");
+    uId = wx.getStorageSync("uId");
+    var data_getmytickets0 = { "uid": uId, "status": 0, "currentpage": 1, "type": 2, "isRemind": 0 };
+    theWx.getRequestByTokent(getmytickets, data_getmytickets0, jwttoken, myself.getMyTic0, "POST");
+  },
+  
+  changNav: function (e) {
+    var choose = e.currentTarget.dataset.navnum;
+    switch(choose-0){
+      case 0:{
+        var data_getmytickets0 = { "uid": uId, "status": 0, "currentpage": 1, "type": 2, "isRemind": 0 };
+        theWx.getRequestByTokent(getmytickets, data_getmytickets0, jwttoken, myself.getMyTic0, "POST");
+        break;
+      }
+      case 1:{
+        var data_getmytickets1 = { "uid": uId, "status": 1, "currentpage": 1, "type": 2, "isRemind": 0 };
+        theWx.getRequestByTokent(getmytickets, data_getmytickets1, jwttoken, myself.getMyTic1, "POST");
+        break;
+      }
+      case 2:{
+        var data_getmytickets2 = { "uid": uId, "status": 2, "currentpage": 1, "type": 2, "isRemind": 0 };
+        theWx.getRequestByTokent(getmytickets, data_getmytickets2, jwttoken, myself.getMyTic2, "POST");
+      }
+    } 
+
+    var className = ["nav_item", "nav_item2"];
+    var display = ["none", "show"];
+    var navclass = this.data.nav_class;
+    var itemisShow = this.data.item_isShow;
+    for (var i = 0; i < navclass.length; i++) {
+      navclass[i] = className[0];
+    }
+    for (var i = 0; i < itemisShow.length; i++) {
+      itemisShow[i] = display[0];
+    }
+    navclass[choose] = className[1];
+    itemisShow[choose] = display[1];
+    this.setData({
+      nav_class: navclass,
+      item_isShow: itemisShow
+    })
+  },
+
+
+  onShow: function () {
+    if (wx.getStorageSync("isrefresh")) {
+      theWx.refresh(this);
+    }
+  },
+  getMyTic0: function (res) {
+    var data0 = [];
+    if (res.data.status == "success") {
+      for (let i = 0; i < res.data.data.length; i++) {
+        let row = {};
+        row.activeid = res.data.data[i].activeid;
+        row.number = res.data.data[i].number;
+        row.xytname = res.data.data[i].xytname;
+        row.xytprice = res.data.data[i].xytprice;
+        row.xytqyxq = theWx.fomatDate(res.data.data[i].xytqyxq);
+        data0.push(row);
+      }
+    }
+    myself.setData({
+      data0: data0
+    })
+  },
+  getMyTic1: function (res) {
+    var data1 = [];
+    if (res.data.status == "success") {
+      for (let i = 0; i < res.data.data.length; i++) {
+        let row = {};
+        row.activeid = res.data.data[i].activeid;
+        row.number = res.data.data[i].number;
+        row.xytname = res.data.data[i].xytname;
+        row.xytprice = res.data.data[i].xytprice;
+        row.xytqyxq = theWx.fomatDate(res.data.data[i].xytqyxq);
+        data1.push(row);
+      }
+    }
+    myself.setData({
+      data1: data1
+    })
+  },
+  getMyTic2: function (res) {
+    var data2 = [];
+    if (res.data.status == "success") {
+      for (let i = 0; i < res.data.data.length; i++) {
+        let row = {};
+        row.activeid = res.data.data[i].activeid;
+        row.number = res.data.data[i].number;
+        row.xytname = res.data.data[i].xytname;
+        row.xytprice = res.data.data[i].xytprice;
+        row.xytqyxq = theWx.fomatDate(res.data.data[i].xytqyxq);
+        data2.push(row);
+      }
+    }
+    myself.setData({
+      data2: data2
+    })
+  }
+})

@@ -1,0 +1,115 @@
+<!--index.wxml-->
+<view class="head">
+  <view style="position: relative;top:20rpx;float:left;width:20%;text-align:right;height:55rpx;line-height:55rpx;overflow: hidden" bindtap="bindPickAddress">{{addressPick}}</view>
+
+  <input type="text" placeholder="搜索目的地/关键字" placeholder-class="placeholder" bindfocus="search"/>
+  <view class="search-coin">
+    <icon type="search" size="15" style="position: relative;top:3px;left:3px" />
+  </view>
+
+  <view class="nav">
+    <view class="{{nav_class[0]}}" data-navnum='0' bindtap="changNav">吃</view>
+    <view class="{{nav_class[1]}}" data-navnum='1' bindtap="changNav">住</view>
+    <view class="{{nav_class[2]}}" data-navnum='2' bindtap="changNav">行</view>
+    <view class="{{nav_class[3]}}" data-navnum='3' bindtap="changNav">游</view>
+    <view class="{{nav_class[4]}}" data-navnum='4' bindtap="changNav">购</view>
+    <view class="{{nav_class[5]}}" data-navnum='5' bindtap="changNav">娱</view>
+  </view>
+</view>
+
+
+
+<view class="detail_item" style="display:{{item_isShow[0]}}">
+<view wx:if="{{shopInfo[0].data.length<=0}}">
+  <image src="/img/nodata.png" class="nodata" mode="aspectFit"></image>
+</view>
+  <view wx:for="{{shopInfo[0].data}}">
+    <view class="item" bindtap="getValue"  data-shopid="{{shopInfo[0].data[index].shopId}}">
+      <image src="{{shopInfo[0].data[index].img}}" class="item-img" mode="aspectFill"></image>
+      <view class="item-continer">
+        <view class="item-title">{{shopInfo[0].data[index].name}}</view>
+        <view class="item-context">{{shopInfo[0].data[index].location}}</view>
+      </view>     
+    </view>
+  </view>
+</view>
+
+<view class="detail_item" style="display:{{item_isShow[1]}}">
+<view wx:if="{{shopInfo[1].data.length<=0}}">
+  <image src="/img/nodata.png" class="nodata" mode="aspectFit"></image>
+</view>
+  <view wx:for="{{shopInfo[1].data}}">
+    <view class="item" bindtap="getValue"  data-shopid="{{shopInfo[1].data[index].shopId}}">
+      <image src="{{shopInfo[1].data[index].img}}" class="item-img" mode="aspectFill"></image>
+      <view class="item-continer">
+        <view class="item-title">{{shopInfo[1].data[index].name}}</view>
+        <view class="item-context">{{shopInfo[1].data[index].location}}</view>
+      </view>
+      
+    </view>
+  </view>
+</view>
+
+<view class="detail_item" style="display:{{item_isShow[2]}}">
+<view wx:if="{{shopInfo[2].data.length<=0}}">
+  <image src="/img/nodata.png" class="nodata" mode="aspectFit"></image>
+</view>
+  <view wx:for="{{shopInfo[2].data}}">
+    <view class="item" bindtap="getValue"  data-shopid="{{shopInfo[2].data[index].shopId}}">
+      <image src="{{shopInfo[2].data[index].img}}" class="item-img" mode="aspectFill"></image>
+      <view class="item-continer">
+        <view class="item-title">{{shopInfo[2].data[index].name}}</view>
+        <view class="item-context">{{shopInfo[2].data[index].location}}</view>
+      </view>
+     
+    </view>
+  </view>
+</view>
+
+<view class="detail_item" style="display:{{item_isShow[3]}}">
+<view wx:if="{{shopInfo[3].data.length<=0}}">
+  <image src="/img/nodata.png" class="nodata" mode="aspectFit"></image>
+</view>
+  <view wx:for="{{shopInfo[3].data}}">
+    <view class="item" bindtap="getValue" data-shopid="{{shopInfo[3].data[index].shopId}}">
+      <image src="{{shopInfo[3].data[index].img}}" class="item-img" mode="aspectFill"></image>
+      <view class="item-continer">
+        <view class="item-title">{{shopInfo[3].data[index].name}}</view>
+        <view class="item-context">{{shopInfo[3].data[index].location}}</view>
+      </view>
+     
+    </view>
+  </view>
+</view>
+
+<view class="detail_item" style="display:{{item_isShow[4]}}">
+<view wx:if="{{shopInfo[4].data.length<=0}}">
+  <image src="/img/nodata.png" class="nodata" mode="aspectFit"></image>
+</view>
+  <view wx:for="{{shopInfo[4].data}}">
+    <view class="item" bindtap="getValue"  data-shopid="{{shopInfo[4].data[index].shopId}}">
+      <image src="{{shopInfo[4].data[index].img}}" class="item-img" mode="aspectFill"></image>
+      <view class="item-continer">
+        <view class="item-title">{{shopInfo[4].data[index].name}}</view>
+        <view class="item-context">{{shopInfo[4].data[index].location}}</view>
+      </view>
+      
+    </view>
+  </view>
+</view>
+
+<view class="detail_item" style="display:{{item_isShow[5]}}">
+<view wx:if="{{shopInfo[5].data.length<=0}}">
+  <image src="/img/nodata.png" class="nodata" mode="aspectFit"></image>
+</view>
+  <view wx:for="{{shopInfo[5].data}}">
+    <view class="item" bindtap="getValue" data-shopid="{{shopInfo[5].data[index].shopId}}">
+      <image src="{{shopInfo[index].img}}" class="item-img" mode="aspectFill"></image>
+      <view class="item-continer">
+        <view class="item-title">{{shopInfo[5].data[index].name}}</view>
+        <view class="item-context">{{shopInfo[5].data[index].location}}</view>
+      </view>
+     
+    </view>
+  </view>
+</view>

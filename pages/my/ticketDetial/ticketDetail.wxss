@@ -1,0 +1,173 @@
+/* pages/my/ticketDetial/ticketDetail.wxss */
+@import "../../scene/indent/indent.wxss";
+.detail_view{
+  margin-top:8rpx;
+}
+.tickBg{
+  width:96%;
+  height:762rpx;
+  margin-left:2%;
+  position:relative;
+}
+.test-item-t {
+  font-size: 34rpx;
+}
+
+.test-item-b {
+  font-size: 30rpx;
+  color: #888;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+}
+
+.blkimg1 {
+  width: 40%;
+  height: 80%;
+  position: relative;
+  top: 12px;
+  float: left;
+  padding-left: 8rpx;
+}
+
+.blkimg3 {
+  width: 30%;
+  height: 100%;
+  /*float: right;*/
+}
+
+.blk {
+  width: 352px;
+  height: 122px;
+}
+
+.wei1 {
+  position: absolute;
+  top: 24rpx;
+  font-size:35rpx;
+  /*left: 520rpx;*/
+  color: #333;
+}
+
+.wei2 {
+  width: 40%;
+  position: absolute;
+  top: 70rpx;
+  left: 550rpx;
+  font-size: 40rpx;
+  color: #fff;
+}
+
+.wei3 {
+  position: absolute;
+  top: 110rpx;
+  /*left: 420rpx;*/
+  color: #333;
+  font-size:25rpx;
+}
+
+.wei4 {
+  position: absolute;
+  top: 160rpx;
+  font-size: 18rpx;
+  color: #333;
+}
+
+.wei5 {
+  width: 20%;
+  position: absolute;
+  top: 80rpx;
+  left: 550rpx;
+  color: #333;
+  height: 50%;
+}
+
+.detil {
+  width: 100%;
+  height: 100%;
+  /*background-color: #fff;*/
+}
+
+.detil_text {
+  width: 50%;
+  height: 100%;
+  background-color: #fff;
+  float: left;
+  padding-left: 10rpx;
+}
+
+.line {
+  width: 100%;
+  height: 2px;
+  position: relative;
+  top: 60rpx;
+}
+.detil_02 {
+  width: 70%;
+  height: 100%;
+  background-color: #fff;
+  float: left;
+}
+.qtBox{
+  float: left;
+  width:100%;
+  position:absolute;
+  margin-top:-760rpx;
+}
+.qtImg{
+  margin-left:30%;
+  margin-top:40rpx;
+  width:686rpx;
+  height:686rpx;
+}
+.tickName{
+  position:absolute;
+  width:100%;
+  text-align:center;
+  margin-top:-330rpx;
+  color:#494752;
+  font-size:35rpx;
+}
+.tickTime{
+  width:84%;
+  font-size:28rpx;
+  text-align:center;
+  height:81rpx;
+  position:absolute;
+  margin-top:-240rpx;
+  border:1rpx #edecec solid;
+  border-radius:10rpx;
+  margin-left:8%;
+  color:#737687;
+  line-height:81rpx;
+}
+.tickTime .title{
+  color: #b3b6c6;
+}
+
+.tickNo{
+  width:84%;
+  font-size:28rpx;
+  text-align:center;
+  height:81rpx;
+  position:absolute;
+  margin-top:-140rpx;
+  border:1rpx #edecec solid;
+  border-radius:10rpx;
+  margin-left:8%;
+  color:#737687;
+  line-height:81rpx;
+}
+.tickNo .title{
+  color: #b3b6c6;
+}
+.used{
+  width:200rpx;
+  height:200rpx;
+  position:absolute;
+  margin-left:260rpx;
+  z-index:9999;
+  margin-top:90rpx;
+}

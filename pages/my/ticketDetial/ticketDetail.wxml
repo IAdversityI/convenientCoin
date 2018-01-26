@@ -1,0 +1,30 @@
+
+  <view class="detail_view" data-viewindex="{{index}}" data-type="0" bindtap="tapTick">
+    <image src="{{indent_view.logo}}" class="detail_view_img2" mode="aspectFill">
+      <image src="/img/my/my_blk.png" class="detail_view_img"></image>
+    </image>
+    <view class="detail_view_title">
+      {{indent_view.xytname}}
+    </view>
+    <view class="detail_price2">
+      <view class="detail_price_1">元</view>
+      <view class="detail_price_2">{{indent_view.xytprice}}</view>
+      <view class="detail_price_1">票价</view>
+    </view>
+    <view class="detail_No">
+      No:{{indent_view.number}}
+    </view>
+    <view class="detail_time">
+      {{indent_view.deadLine}}
+    </view>
+  </view>
+
+
+<image src='/img/tickBG.png' class='tickBg' >
+  <view class='qtBox'>
+    <canvas class='qtImg' canvas-id="mycanvas"/>
+  </view>
+  <view class='tickName'>{{indent_view.xytname}}</view>
+  <view class='tickTime'><text class='title'>有效期限: </text> {{indent_view.deadLine}}</view>
+  <view class='tickNo'><text class='title'>票券编号: </text>  No.{{indent_view.number}}</view>
+</image>

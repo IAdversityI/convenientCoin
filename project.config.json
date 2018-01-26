@@ -1,0 +1,41 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "1.5.4",
+	"appid": "wx6be39adddc977471",
+	"projectname": "xyt",
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": 0,
+					"name": "hgsTester",
+					"pathName": "pages/scene/detail/detail",
+					"query": "choose=38&addressCode=52001"
+				},
+				{
+					"id": -1,
+					"name": "hgsTester",
+					"pathName": "pages/my/ticketDetial/ticketDetail",
+					"query": "choose=38&addressCode=52001"
+				}
+			]
+		}
+	}
+}

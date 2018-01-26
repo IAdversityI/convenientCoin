@@ -1,0 +1,19 @@
+<!--memberDetail.wxml-->
+<view class="memberDetail">
+  <view class="content">
+    <view class="name">姓名：{{username}}</view>
+  </view>
+  <view class="content">
+    <view class="name">会员ID：{{memberId}}</view>
+  </view>
+  
+  <view class="content">
+    <view class="name" >手机号：{{phone}}</view>
+  </view>
+   <view class="content">
+    <view class="name" >证件号码： {{idCard}}</view>
+  </view>
+   <view class="content">
+    <view class="name" >便利扣号： {{blkid}}</view>
+  </view>
+</view>

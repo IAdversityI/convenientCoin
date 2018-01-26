@@ -1,0 +1,104 @@
+<!--indent.wxml-->
+<view class="first_block">
+  <view class="indent_name">{{indent_view.activename}}</view>
+</view>
+<view class="sec_block">
+  <view class="timeTitle">使用时间</view>
+  <view class="time_box">
+    <view class="date_range">{{indent_view.activestime}}~{{indent_view.activeetime}}</view>
+  </view>
+</view>
+<view class="sec_block">
+  <view class="timeTitle">活动数量</view>
+  <view class="time_box">
+    <view class="date_range">已售：{{indent_view.unusedactive}}张    剩余：{{indent_view.activeperson-indent_view.unusedactive}}张</view>
+  </view>
+</view>
+<view class="blank"></view>
+
+<view class="detail_item" wx:if="{{indent_view.type==0}}">
+  <view class="detail_view" data-viewindex="{{index}}" data-type="0" bindtap="tapTick">
+    <image src="{{indent_view.logo}}" class="detail_view_img2" mode="aspectFill">
+      <image src="/img/my/my_blk.png" class="detail_view_img"></image>
+    </image>
+    <view class="detail_view_title">
+      {{indent_view.activename}}
+    </view>
+    <view class="detail_price2">
+      <view class="detail_price_1">元</view>
+      <view class="detail_price_2">{{indent_view.activeprice}}</view>
+      <view class="detail_price_1">票价</view>
+    </view>
+    <view class="detail_time">
+      有效期： {{indent_view.activestime}}~{{indent_view.activeetime}}
+    </view>
+  </view>
+</view>
+
+<view class="detail_item" wx:if="{{indent_view.type==1}}">
+  <view class="detail_quan">
+  
+    <view class="quan_left">
+      <image class="quan_left_img" src="{{quans[index].src}}" mode="aspectFill"></image>
+    </view>
+    
+    <view class="quan_middle">
+    	<view class="quan_name"></view>
+      <view class="quan_left_top">
+        <view class="quan_type">{{indent_view.activename}}</view>
+      </view>
+      <view class="detail_time1">
+        {{indent_view.activestime}}-{{indent_view.activeetime}}
+      </view>      
+    </view>
+    
+    <image class="quan_right" src="/img/scene/quan.png" data-type="1" bindtap="tapTick" data-viewindex="{{index}}">
+      <view class="quan_right_top">
+        {{indent_view.activeprice}}
+      </view>
+    </image>
+  </view>
+</view>
+
+
+<view class="context_declare">
+  <view style="text-indent:20rpx;margin-top:20rpx;">
+    使用说明
+  </view>
+  <view class="context_title">
+    • 预定时间
+  </view>
+  <view class="context_txt">
+    提前1天23点前可预定门票
+  </view>
+  <view class="context_title">
+    • 使用方式
+  </view>
+  <view class="context_txt">
+    至景区门口服务终端机扫描便利扣即可入内
+  </view>
+
+  <view class="context_title">
+    • 预定须知
+  </view>
+  <view class="context_txt">
+    1、提前预定时间：提前1天20点前可预订门票。 2、退改规则：该产品暂不支持改退。不便之处敬请谅解。 3、兑换方式:无需取票，凭便利扣直接验证入园 4、入园时间：08:00-16:00 5、费用包含：景区淡季门票成人票1张。 6、景区检票的开始时间是早上8:00一下午16: 00。
+  </view>
+
+  <view class="context_title">
+    • 其它说明
+  </view>
+  <view class="context_txt">
+    景区大门票免票政策：残疾人、70岁以上老年人、14 周岁以下儿重、 现役军人、残疾人、佛教教职人员或举行过入教仪式的佛教群众持有效证件免票。 景区大门票半票：学生、60-70岁（含）以内老年人、14 (不含） -18（不含） 周岁未成年观光车半票：1.1 (含) -1.4米（不含）儿童，高龄老人（凭高龄证） 观光车免票：1.1米（不含） 以下儿童索道票免费：身高1.1 (含)米以下儿童 （以上信息仅供参考，具体信息请以景区当天披露为准）。
+  </view>
+</view>
+
+<view style='width:100%;height:77rpx;float:left;'></view>
+<view class="indent_bottom">
+  <view class="indent_price">
+    应付金额：{{indent_view.activeprice}}
+  </view>
+  <view class="indent_price" style="background-color:#ff8800;color:#FFFFFF" bindtap="pay">
+    立即支付
+  </view>
+</view>

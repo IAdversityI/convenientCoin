@@ -1,0 +1,23 @@
+<!--introduc.wxml-->
+<swiper indicator-dots='true' class="img_swiper" style="" bindchange="imgchange" style='margin-top:27rpx;'>
+    <block wx:for="{{img}}">
+      <swiper-item>
+        <image src="{{img[index]}}" class="slide-image"  mode="aspectFill"/>
+      </swiper-item>
+    </block>
+</swiper>
+<view class="head"><text class='iconfont icon-shangjia'></text><view class='blank'></view> 景区公告</view>
+<view class="context">{{shopNotice}}</view>
+<view class="head"><text class='iconfont icon-shenduyou'></text><view class='blank'></view> 如何到达</view>
+<view class="context">{{arriveAt}}</view>
+<view class="head"><text class='iconfont icon-jianjie'></text><view class='blank'></view> 景区详情</view>
+<view  class="context">
+  <rich-text nodes="{{shopintroduction}}"></rich-text>
+</view>
+<view class="head"><text class='iconfont icon-renshu'></text><view class='blank'></view> 最大承载人数</view>
+<view class="context">{{pjpersons}}人</view>
+<view class="head"><text class='iconfont icon-cheliangliuliang'></text><view class='blank'></view> 最大车位数</view>
+<view class="context">{{shopcrowd}}辆</view>
+<view class="head"><text class='iconfont icon-lianxi'></text><view class='blank'></view> 联系电话</view>
+<view class="context"> {{shopphone}}</view>
+<view style='width:100%;height:27rpx;'></view>

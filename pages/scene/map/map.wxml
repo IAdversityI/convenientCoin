@@ -1,0 +1,11 @@
+<!--map.wxml-->
+<map 
+  style="width: 100%; height:100vh;" 
+  id="map" 
+  longitude="{{lng}}" 
+  latitude="{{lat}}"    
+  markers="{{markers}}" 
+  bindmarkertap="markertap" 
+  bindcallouttap="markertap"
+  scale="18"	
+  ></map>

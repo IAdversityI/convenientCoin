@@ -1,0 +1,350 @@
+// detail.js
+var shopId="";
+var addressCode="";
+var theWx = getApp();
+var myself="";
+var jwttoken = "";
+var uId="";
+var getShopPushedActives = "/sys/v1/getShopPushedActives/";
+Page({
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    mask:"none",
+    winHeight:"500",
+    detail_view: "",
+    tip1:"黄果树大瀑布",
+    tip2:6,
+    isTick:true,
+    location:"",
+    lng:"",
+    nav_class: ["nav_item2", "nav_item", "nav_item","nav_item"],
+    item_isShow: ["show","none","none","none"],
+    ticks:[],
+    quans: [],
+    shopInfo:{}
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {  
+      myself = this; 
+      shopId = options.choose;
+      addressCode = options.addressCode;
+      jwttoken = wx.getStorageSync("jwttoken");
+      uId = wx.getStorageSync("uId");
+      var data_AllShopId = {"shopid": shopId };
+      var data_ShopPushedActives = {"shopid": shopId, "activetypeid": 1, "activeStatus": 1, "currentpage": 1, "pagesize": 12 };
+      var getAllShopId = "/sys/v1/getallshopinfo/";
+      var getShopPushedActives = "/sys/v1/getShopPushedActives/";
+      theWx.getRequest(getAllShopId, data_AllShopId, myself.getTheShopInfo, "POST");
+       
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+  
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+    if (wx.getStorageSync("isrefresh")) {
+      theWx.refresh(this);
+    }
+   // console.log(shopId + " " + "test");
+    var sysInfo = wx.getSystemInfoSync();
+    var winHeight = sysInfo.windowHeight;
+    myself = this;
+    jwttoken = wx.getStorageSync("jwttoken");
+    uId = wx.getStorageSync("uId");
+   
+    this.setData({
+      winHeight: winHeight,
+    })
+  },
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  getTheShopInfo(res){
+    var data_ShopPushedActives = { "shopid": shopId, "activetypeid": 1, "activeStatus": 1, "currentpage": 1, "pagesize": 12 };
+    theWx.getRequest(getShopPushedActives, data_ShopPushedActives, myself.getTick, "POST");   
+ 
+    var tip1 = res.data.data.shopname;
+    var location = res.data.data.shopaddress;
+    var lng = res.data. data.lng;
+    var lat = res.data.data.lat;
+    var detail_view="";
+    if (res.data.data.shopimg.length>0){
+      detail_view = theWx.domain + res.data.data.shopimg[0].url;
+    }
+    var tip2 = res.data.data.shopimg.length;
+    var shopInfo = res.data.data;
+    //console.log(shopInfo);
+    this.setData({
+      tip1: tip1,
+      location: location,
+      lng: lng,
+      lat: lat,
+      tip2: tip2,
+      detail_view: detail_view,
+      shopInfo: shopInfo
+    })
+    wx.setNavigationBarTitle({
+      title: tip1,
+    })
+  },
+  onHide: function () {
+  
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+  
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+  
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+  
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+  
+  },
+  changNav:function(e){
+   var choose=e.currentTarget.dataset.navnum;
+   if(choose==0){
+     var data_ShopPushedActives = { "shopid": shopId, "activetypeid": 1, "activeStatus": 1, "currentpage": 1, "pagesize": 12 };
+     theWx.getRequest(getShopPushedActives, data_ShopPushedActives, myself.getTick, "POST");   
+   }else if(choose==1){
+     var data_ShopPushedActives = { "shopid": shopId, "activetypeid": 2, "activeStatus": 1, "currentpage": 1, "pagesize": 12 };
+     theWx.getRequest(getShopPushedActives, data_ShopPushedActives, myself.getQuan, "POST");  
+   }
+   var className = ["nav_item","nav_item2"];
+   var display = ["none", "show"];
+   var navclass = this.data.nav_class;
+   var itemisShow = this.data.item_isShow;
+   for (var i = 0; i < navclass.length;i++){
+       navclass[i] = className[0];
+   }
+   for (var i = 0; i < itemisShow.length; i++) {
+     itemisShow[i] = display[0];
+   }
+   navclass[choose] = className[1];
+   itemisShow[choose] = display[1];
+   this.setData({
+     nav_class: navclass,
+     item_isShow: itemisShow
+   })
+  },
+  intoIntroduce:function(){
+    //console.log(this.data.shopInfo);
+    var shopInfo = JSON.stringify(this.data.shopInfo);
+    wx.navigateTo({
+      url: '../introduce/introduc?shopInfo=' + shopInfo,
+    })
+  },
+  tapTick:function(e){
+    var viewindex = e.currentTarget.dataset.viewindex;
+    var types = e.currentTarget.dataset.type-0;
+    var receiveticket = "/wca/v1/receiveticket";
+    if (wx.getStorageSync("jwttoken")) {
+      switch (types) {
+        case 0: {
+          myself.setData({
+            isTick: true,
+          })
+          if (this.data.ticks[viewindex].price != "") {
+            var tick = {};
+            tick.activeid = this.data.ticks[viewindex].activeid;
+            tick.activeprice = this.data.ticks[viewindex].price;
+            tick.logo = this.data.ticks[viewindex].src;
+            tick.activename = this.data.ticks[viewindex].name;
+            tick.activestime = this.data.ticks[viewindex].activestime;
+            tick.activeetime = this.data.ticks[viewindex].activeetime;
+            tick.type = 0;
+            var indentData = JSON.stringify(tick);
+            wx.navigateTo({
+              url: '../indent/indent?indentData=' + indentData,
+            })
+          }
+          else {
+            var data_receiveticket = { "uId": uId, "activeid": this.data.ticks[viewindex].activeid };
+            theWx.getRequestByTokent(receiveticket, data_receiveticket, jwttoken, myself.successGetT, "POST");
+
+          };
+          break;
+        }
+        case 1: {
+          //if (false) {
+          myself.setData({
+            isTick: false,
+          })
+          if (this.data.quans[viewindex].buy_type != "免费领取") {
+            var quan = {};
+            quan.activeid = this.data.quans[viewindex].activeid;
+            quan.activeprice = this.data.quans[viewindex].status;
+            quan.logo = this.data.quans[viewindex].src;
+            quan.activename = this.data.quans[viewindex].name;
+            quan.activestime = this.data.quans[viewindex].activestime;
+            quan.activeetime = this.data.quans[viewindex].activeetime;
+            quan.type = 1;
+            var indentData = JSON.stringify(quan);
+            wx.navigateTo({
+              url: '../indent/indent?indentData=' + indentData,
+            })
+          }
+          else {
+            var data_receiveticket = { "uId": uId, "activeid": this.data.quans[viewindex].activeid };
+            theWx.getRequestByTokent(receiveticket, data_receiveticket, jwttoken, myself.successGetT, "POST");
+          };
+          break;
+        }
+      }
+    } else {
+      console.log("getUserInfo");
+      this.showUserInfo();
+    }
+    if (wx.getStorageSync("jwttoken") && !wx.getStorageSync("expire")) {
+      wx.navigateTo({
+        url: '/pages/my/member/member',
+      })
+    } else {
+
+    }
+  
+
+  },
+  successGetT:function(res){
+    if(res.data.status=="success"){
+      myself.setData({
+        mask: "show"
+      })
+    }else{
+      wx.showModal({
+        title: '领取失败',
+        content: '该票券领取失败',
+        success: function (res) {
+          if (res.confirm) {
+          } else {
+          }
+        }
+      })
+    }
+  },
+  continueView:function(){
+    this.setData({
+      mask: "none"
+    })
+  },
+  gotoMy:function(){
+    var isTick=this.data.isTick;
+    if(isTick){
+      myself.setData({
+        mask: "show",
+        isTick: false,
+      });
+      wx.navigateTo({
+        url: '/pages/my/myTickets/myTickets',
+      })
+    }else{
+      myself.setData({
+        mask: "show",
+        isTick: false,
+      });
+      wx.navigateTo({
+        url: '/pages/my/myArch/myArch',
+      })
+    }
+   
+  },
+  gotomap:function(){
+    wx.navigateTo({
+      url: '/pages/scene/map/map?lat=' + this.data.lat + "&lng=" + this.data.lng + "&shopName=" + this.data.tip1 + "&addressCode=" + addressCode,
+    })
+  },
+  gotopicture:function(){
+    var shopimg = JSON.stringify(this.data.shopInfo.shopimg);
+    wx.navigateTo({
+      url: '/pages/scene/pictrue/pictrue?shopimg=' + shopimg,
+    })
+  },
+  gotobuydetial:function(){
+    wx.navigateTo({
+      url: '/pages/scene/buydetail/buydetail',
+    })
+  },
+  getTick:function(res){
+    var ticks = [];
+    var quans = [];
+    for (var i = 0; i < res.data.data.active.length; i++) {
+        var tick = {};
+        tick.name = res.data.data.active[i].activename;
+        tick.price = res.data.data.active[i].activeprice;
+        tick.src = theWx.domain + res.data.data.active[i].logo;
+        tick.activeid = res.data.data.active[i].activeid;
+        tick.activestime = theWx.fomatDate(res.data.data.active[i].activestime);
+        tick.activeetime = theWx.fomatDate(res.data.data.active[i].activeetime);
+        ticks.push(tick);
+    }
+    //console.log(self)
+    myself.setData({
+      ticks: ticks,
+    })
+  },
+  getQuan: function (res) {
+    var quans = [];
+    for (var i = 0; i < res.data.data.active.length; i++) {
+        var quan = {};
+        quan.activestime = res.data.data.active[i].activestime;
+        quan.activeetime = res.data.data.active[i].activeetime;
+        quan.name = res.data.data.active[i].activename;
+        quan.price = "￥" + res.data.data.active[i].activecoin;
+        quan.type = "代金券";
+        quan.activeid = res.data.data.active[i].activeid;
+        quan.src = theWx.domain + res.data.data.active[i].logo;
+        if (res.data.data.active[i].activeprice == "" || res.data.data.active[i].activeprice == 0) {
+          quan.buy_type = "免费领取";
+          quan.status = "已抢" + Math.round(res.data.data.active[i].usedactive / res.data.data.active[i].activeperson * 100) + "%";
+        } else {
+          quan.buy_type = "立即购买";
+          quan.status = "￥" + res.data.data.active[i].activeprice;
+        }
+        quans.push(quan);
+      }
+    //console.log(self)
+    myself.setData({
+      quans: quans
+    })
+  },
+  showUserInfo() {
+    wx.navigateTo({
+      url: '/pages/my/get-user-info/get-user-info',
+    })
+  },
+  onReachBottom(){
+    console.log("已经到底啦！！！")
+  },
+  test:function(){
+    console.log("your mother fucker")
+  }
+})

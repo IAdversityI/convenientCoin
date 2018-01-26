@@ -1,0 +1,60 @@
+<!--index.wxml-->
+<view class="head">
+  <view class="nav">
+    <view style="color:#333;position: relative;top:20rpx;float:left;width:20%;text-align:right;height:55rpx;line-height:55rpx;overflow: hidden;" bindtap="bindPickAddress">{{addressPick}}</view>
+    <view class='inputBox'>
+      <input type="text" placeholder="搜索目的地/关键字" placeholder-class="placeholder" bindfocus="search" />
+      <view class="search-coin">
+        <icon type="search" size="15" style="position: relative;top:3rpx;left:3px;color:#25C4A4" bindtap="search" />
+      </view>
+    </view>
+  </view>
+
+  <view class='nav' style='background-color:#FDFDFD;height:70rpx;'>
+    <view class='selecter {{selected[0].isSelected}}' data-option='0' bindtap='getOption'>{{typeName}}
+      <text class=' iconfont  {{selected[0].arrow}}'></text> </view>
+    <view class='line'></view>
+    <view class='selecter {{selected[1].isSelected}}' data-option='1' bindtap='getOption'>{{distanceName}}
+      <text class=' iconfont {{selected[1].arrow}}'></text> </view>
+  </view>
+</view>
+
+<view class='selectPanel shopType' style='display:{{selected[0].panel}};'>
+  <scroll-view scroll-y style="height:100%;">
+    <view wx:for="{{shopTypes}}" wx:key="id">
+      <view bindtap='changNav' data-navnum='{{shopTypes[index].id}}' class='shopType'>
+        <view class='name {{shopTypes[index].isSelected}}'>{{shopTypes[index].typeName}}</view>
+      </view>
+    </view>
+  </scroll-view>
+</view>
+
+<view class='selectPanel shopType' style='display:{{selected[1].panel}};'>
+  <scroll-view scroll-y style="height:100%;">
+    <view wx:for="{{distances}}" wx:key="id">
+      <view bindtap='changDistance' data-distance='{{distances[index].id}}' data-selectDistance='{{distances[index].distance}}' class='shopType'>
+        <view class='distance {{distances[index].isSelected}}'>{{distances[index].name}}</view>
+      </view>
+    </view>
+  </scroll-view>
+</view>
+<view class='selectPanel shopType' style='display:{{selected[2].panel}};'>
+
+</view>
+
+<view class='mask' style='display:{{maskStatus}}' bindtap='hideMask'></view>
+
+<view class="detail_item" >
+  <view wx:if="{{shopInfo.length<=0}}">
+    <image src="/img/nodata.png" class="nodata" mode="aspectFit"></image>
+  </view>
+  <view wx:for="{{shopInfo}}" >
+    <view class="item" bindtap="getValue" data-shopid="{{shopInfo[index].shopId}}" data-shoptype="{{shopInfo[index].shoptype}}">
+      <image src="{{shopInfo[index].img}}" class="item-img" mode="aspectFill"></image>
+      <view class="item-continer">
+        <view class="item-title">{{shopInfo[index].name}}</view>
+        <view class="item-context">{{addressPick}}</view>
+      </view>
+    </view>
+  </view>
+</view>

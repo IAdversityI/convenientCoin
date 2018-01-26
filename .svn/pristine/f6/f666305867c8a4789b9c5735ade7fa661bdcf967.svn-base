@@ -1,0 +1,56 @@
+/* myTicketsDetil.wxss */
+.bgDetail{
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+}
+.container {
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  
+  
+}
+
+.item {
+  display: flex;
+  width: 100rpx;
+  height: 100rpx;
+  background-color: white;
+  border: 1px solid lightblue;
+  align-self: center;
+}
+
+.item image {
+  display: flex;
+  width: 90%;
+  height: 90%;
+  align-content: center;
+}
+
+.item .lineDetail {
+  display: flex;
+  width: 90%;
+  height: 4px;
+  align-self: center;
+ 
+}
+.text{
+  display: flex;
+  font-size: 20rpx;
+  color:gray;
+ justify-content: center;
+  
+}
+.item1 {
+  display: flex;
+  width: 100rpx;
+  height: 50rpx;
+  background-color: white;
+  border: 1px solid lightblue;
+  align-self: center;
+}

@@ -1,0 +1,10 @@
+<!--pictrue.wxml-->
+<view class="imgtip">{{now}}/{{all}}</view>
+<view class="mask" style=" height:{{winHeight}}px"></view>
+<swiper indicator-dots='true' class="img_swiper" style="margin-top:{{165-winHeight*2}}rpx" bindchange="imgchange">
+    <block wx:for="{{img}}">
+      <swiper-item>
+        <image src="{{img[index]}}" class="slide-image" width="355" height="150" bindtap="back" mode="aspectFill"/>
+      </swiper-item>
+    </block>
+</swiper>

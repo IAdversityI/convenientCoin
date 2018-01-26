@@ -1,0 +1,26 @@
+/* search.wxss */
+@import "/pages/index/index.wxss";
+input{
+  margin-top:-15rpx;
+  width:85%;
+  line-height: 55rpx;
+  margin-right:3%;
+}
+.head{
+  width:100%;
+  height:100rpx;
+  background-color: #f0eff5;
+  position: fixed;
+  z-index:999;
+}
+.search-coin{
+  float: right;
+  position: relative;
+  top:3rpx;
+  height:55rpx;
+  background-color: #FFFFFF;
+  width:7%;
+}
+.detail_item{
+  top:110rpx;
+}

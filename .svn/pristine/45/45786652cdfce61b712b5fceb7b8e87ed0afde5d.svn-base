@@ -1,0 +1,21 @@
+<!--index.wxml-->
+<view class="head">
+  <view style="position: relative;float:left;width:20%;text-align:right;height:20rpx;line-height:55rpx;overflow: hidden" bindtap="bindPickAddress">{{addressPick}}</view>
+   <input type="text" placeholder="搜索目的地/关键字" placeholder-class="placeholder" bindinput="setKey" bindconfirm="search"/>
+   <view class="search-coin">
+      <icon type="search" size="15" style="position: relative;top:3px;left:3px" bindtap="search"/>
+   </view>
+</view>
+
+<view class="detail_item">
+  <view wx:for="{{shopInfo}}">
+    <view class="item" bindtap="getValue"  data-shopid="{{shopInfo[index].shopId}}">
+      <image src="{{shopInfo[index].img}}" class="item-img" mode="aspectFill"></image>
+      <view class="item-continer">
+        <view class="item-title">{{shopInfo[index].name}}</view>
+        <view class="item-context">{{shopInfo[index].location}}</view>
+      </view>
+    </view>
+   </view>
+  </view>
+

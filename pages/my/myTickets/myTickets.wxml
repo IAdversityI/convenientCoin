@@ -1,0 +1,69 @@
+<view class="nav">
+  <view class="{{nav_class[0]}}" data-navnum='0' bindtap="changNav">未使用</view>
+  <view class="{{nav_class[1]}}" data-navnum='1' bindtap="changNav">已使用</view>
+  <view class="{{nav_class[2]}}" data-navnum='2' bindtap="changNav">已过期</view>
+</view>
+<view class="blank"></view>
+<view class="detail_item" style="display:{{item_isShow[0]}}">
+  <view class="test-list">
+    <view wx:if="{{data0.length<=0}}">
+      <image src="/img/nodata1.png" class="nodata" mode="aspectFit"></image>
+    </view>
+    <view class="test-item" wx:for="{{data0}}" wx:key="{{item.id}}">
+      <!--<view class="test-item-t">No：{{item.type}}</view>-->
+      <view class="test-item-b">
+        <!--<image class="blkimg1"   src="../../../img/my/my_blk.png"></image>-->
+        <view class="blk" style="position: relative; width: 100%; height:200rpx;" bindtap='gotoDetail' data-viewindex="{{index}}" data-type="0">
+          <image class="blkimg1" src= "{{data0[index].logo}}"></image>
+          <image class="blkimg2" src="../../../img/my/bg.png"> </image>
+          <view class="wei1">{{data0[index].xytname}}</view>
+          <view class="wei2">票价：{{data0[index].xytprice}}</view>
+          <view class="wei3 test-item-t">No:{{data0[index].number}} </view>
+          <view class="wei4">{{data0[index].xytqyxq}}~{{data0[index].activestime}} </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="detail_item" style="display:{{item_isShow[1]}}">
+  <view class="test-list">
+    <view wx:if="{{data1.length<=0}}">
+      <image src="/img/nodata1.png" class="nodata" mode="aspectFit"></image>
+    </view>
+    <view class="test-item" wx:for="{{data1}}" wx:key="{{item.id}}">
+      <!--<view class="test-item-t">No：{{item.type}}</view>-->
+      <view class="test-item-b">
+        <!--<image class="blkimg1"   src="../../../img/my/my_blk.png"></image>-->
+        <view class="blk" style="position: relative; width: 100%; height:200rpx;" bindtap='gotoDetail' data-viewindex="{{index}}" data-type="1">
+          <image class="blkimg1"src= "{{data1[index].logo}}"></image>
+          <image class="blkimg2" src="../../../img/my/bg_past.png"></image>
+          <view class="wei1">{{data1[index].xytname}}</view>
+          <view class="wei2">票价：{{data1[index].xytprice}}</view>
+          <view class="wei3 test-item-t">No:{{data1[index].number}} </view>
+          <view class="wei4">{{data1[index].xytqyxq}}~{{data1[index].activestime}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="detail_item" style="display:{{item_isShow[2]}}">
+  <view class="test-list">
+    <view wx:if="{{data2.length<=0}}">
+      <image src="/img/nodata1.png" class="nodata" mode="aspectFit"></image>
+    </view>
+    <view class="test-item" wx:for="{{data2}}" wx:key="{{item.id}}">
+      <!--<view class="test-item-t">No：{{item.type}}</view>-->
+      <view class="test-item-b">
+        <!--<image class="blkimg1"   src="../../../img/my/my_blk.png"></image>-->
+        <view class="blk" style="position: relative; width: 100%; height:200rpx;"bindtap='gotoDetail' data-viewindex="{{index}}" data-type="2">
+          <image class="blkimg1" src= "{{data2[index].logo}}"></image>
+          <image class="blkimg2" src="../../../img/my/bg_past.png"> </image>
+          <view class="wei1">{{data2[index].xytname}}</view>
+          <view class="wei2">票价：{{data2[index].xytprice}}</view>
+          <view class="wei3 test-item-t">No:{{data2[index].number}} </view>
+          <view class="wei4">{{data2[index].xytqyxq}}~{{data2[index].activestime}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

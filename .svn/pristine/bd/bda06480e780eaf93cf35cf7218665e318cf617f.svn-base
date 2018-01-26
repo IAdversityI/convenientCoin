@@ -1,0 +1,115 @@
+/* member.wxss */
+
+.name {
+  float: left;
+  margin: 0 27rpx;
+  height: 40px;
+  width: 20%;
+  font-weight: bold;
+}
+
+.inputName {
+  float: left;
+  height: 40px;
+  width: 50%;
+}
+
+.content {
+  height: 36px;
+  width: 100%;
+  margin: 0 auto;
+  border-bottom: 1px solid #eee;
+  padding-top: 14px;
+  background-color: white;
+  flex-direction: row;
+}
+
+.block {
+  height: 10px;
+}
+
+.header {
+  display: inline-block;
+  height: 36px;
+  padding-top: 2px;
+  /*padding-left: 18px;*/
+  margin-top: 4px;
+  color: gray;
+  margin-left: 26rpx;
+}
+
+.login_btn {
+  position: relative;
+  top: 10px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.name1 {
+  float: left;
+  margin: 0 27rpx;
+  height: 40px;
+  width: 20%;
+  font-weight: bold;
+}
+
+.inputName1 {
+  float: left;
+  height: 40px;
+  width: 30%;
+  /*margin-left: 30rpx;*/
+}
+
+.content .btn {
+  width: 30%;
+  float: left;
+  height: 30px;
+  padding-bottom: 45px;
+  margin-top:-11px;
+  color: #1aad19;
+  font-size:30rpx;
+  text-align:center;
+  line-height:46px;
+  border-color:  #1aad19;
+}
+
+.code {
+  height: 100%;
+  width: 24%;
+  /*float: right;*/
+  float: left;
+}
+
+.code01 {
+  height: 90%;
+  width: 40%;
+  margin: 0 100rpx;
+  /*float: right;
+  float: right;*/
+}
+
+.card {
+  margin: 0 27rpx;
+}
+
+.inputName2 {
+  float: left;
+  height: 40px;
+  width: 30%;
+}
+
+.content1 {
+  height: 36px;
+  width: 100%;
+  margin: 0 auto;
+  /*border-bottom: 1px solid #eee;*//*text-align: center;*/
+  padding-top: 14px;
+  /*background-color: white;*/
+  flex-direction: row;
+}
+input{
+  font-size:30rpx;
+}
+.ex{
+  width:86%;
+}

@@ -1,0 +1,153 @@
+// index.js
+var theWx = getApp();
+var myself = "";
+var getAllShop = "/sys/v1/getallshop";
+var addressCode="";
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    indext:0,
+    ids:0,
+    shopInfo: [{ "type": 1, data: [] }, { "type": 2, data: []}, { "type": 3, data: [] }, { "type": 4, data: [] }, { "type": 5, data: [] }, { "type": 6, data: [] }],
+    addressPick: "全省",
+    addressCode:"",
+    nav_class: ["nav_item2", "nav_item", "nav_item", "nav_item", "nav_item", "nav_item"],
+    item_isShow: ["show", "none", "none", "none", "none", "none"],
+  },
+  bindPickAddress: function (e) {
+   wx.navigateTo({
+     url: '../scene/address/address',
+   })
+  },
+  getValue:function(e){
+    var selectId = e.currentTarget.dataset.shopid;
+    addressCode = this.data.addressCode;
+    //console.log(selectId);
+    wx.navigateTo({
+      url: '../scene/detail/detail?choose=' + selectId + "&addressCode=" + addressCode ,
+    })
+  },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    myself = this; 
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+  
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+    var city = wx.getStorageSync('selectCity');
+     addressCode = wx.getStorageSync('selectCode');  
+    if(!city){
+      city="全省"
+    }    
+    //初始化数据
+    this.setData({
+      shopInfo: [{ "type": 1, data: [] }, { "type": 2, data: [] }, { "type": 3, data: [] }, { "type":4, data: [] }, { "type": 5, data: [] }, { "type": 6, data: [] }],
+      nav_class: ["nav_item2", "nav_item", "nav_item", "nav_item", "nav_item", "nav_item"],
+      item_isShow: ["show", "none", "none", "none", "none", "none"],
+      addressPick: city,
+      addressCode: addressCode,
+    }) 
+    var data = { "shoptype": 1,"cityid": addressCode, "keyword": "", "currentpage": 1, "orderby": "shopname" };
+    console.log("fuckME");
+    console.log(data);
+    theWx.getRequest(getAllShop, data, myself.getallshop, "POST");   
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+  
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+  
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+  
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+  
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+  
+  },
+  changNav: function (e) {
+    
+    var choose = e.currentTarget.dataset.navnum;
+    var data = { "shoptype": (choose-0+1), "cityid": addressCode, "keyword": "", "currentpage": 1, "orderby": "shopname" };
+    theWx.getRequest(getAllShop, data, myself.getallshop, "POST");  
+    var className = ["nav_item", "nav_item2"];
+    var display = ["none", "show"];
+    var navclass = this.data.nav_class;
+    var itemisShow = this.data.item_isShow;
+    for (var i = 0; i < navclass.length; i++) {
+      navclass[i] = className[0];
+    }
+    for (var i = 0; i < itemisShow.length; i++) {
+      itemisShow[i] = display[0];
+    }
+    navclass[choose] = className[1];
+    itemisShow[choose] = display[1];
+    this.setData({
+      nav_class: navclass,
+      item_isShow: itemisShow
+    }) 
+  },
+  intoIntroduce: function () {
+    wx.navigateTo({
+      url: '../introduce/introduc',
+    })
+  },
+  getallshop:function(res){
+    var shopInfo = [{ "type": 1, data: [] }, { "type": 2, data: [] }, { "type": 3, data: [] }, { "type": 4, data: [] }, { "type": 5, data: [] }, { "type": 6, data: [] }];
+    for (var i = 0; i < res.data.data.shopinfo.length; i++) {
+      var shop = {};
+      shop.name = res.data.data.shopinfo[i].shopname;
+      shop.img = theWx.domain + res.data.data.shopinfo[i].imgurl;
+      //console.log(shop.img);
+      shop.location = wx.getStorageSync('selectCity');
+      shop.shopId = res.data.data.shopinfo[i].shopid;
+      shopInfo[res.data.data.shopinfo[i].shoptype-1].data.push(shop);
+    }
+    myself.setData({
+      shopInfo: shopInfo
+    }) 
+  },
+  search:function()
+  {
+   wx.navigateTo({
+     url: '/pages/scene/search/search',
+   })
+  }
+  
+})

@@ -1,0 +1,49 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/my/my",
+    "pages/my/member/member",
+    "pages/scene/address/address",
+    "pages/my/myTickets/myTickets",
+    "pages/my/myArch/myArch",
+    "pages/my/adventRemind/adventRemind",
+    "pages/my/changePassword/changePassword",
+    "pages/scene/detail/detail",
+    "pages/my/myTickets/myTicketsDetail/myTicketsDetail",
+    "pages/my/member/memberDetail/memberDetail",
+    "pages/scene/introduce/introduc",
+    "pages/scene/indent/indent",
+    "pages/scene/map/map",
+    "pages/scene/pictrue/pictrue",
+    "pages/scene/buydetail/buydetail",
+    "pages/my/login/login",
+    "pages/my/get-user-info/get-user-info",
+    "pages/scene/search/search",
+    "pages/my/changeBlk/changeBlk"
+  ],
+  "tabBar": {
+    "selectedColor": "#17b990",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "目的地列表",
+        "iconPath": "img/lb-normal.png",
+        "selectedIconPath": "img/lb-pressed.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的便利扣",
+        "iconPath": "img/wd-normal.png",
+        "selectedIconPath": "img/wd-pressed.png"
+      }
+    ]
+  },
+  "window": {
+    "navigationBarBackgroundColor": "#17b990",
+    "navigationBarTextStyle": "#FFFFFF",
+    "navigationBarTitleText": "便利扣",
+    "backgroundColor": "#eeeeee",
+    "backgroundTextStyle": "light",
+    "enablePullDownRefresh": false
+  }
+}
